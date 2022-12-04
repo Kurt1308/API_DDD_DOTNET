@@ -1,15 +1,16 @@
 ﻿using CrossCutting.DependencyInjection;
-
-using Domain.Interfaces.Services.User;
-using FluentAssertions.Common;
+using Domain.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Service.Services;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace application
 {
     public static class Startup
     {
+       // public static object JwtBearerDefaults { get; private set; }
+
         public static WebApplication InitializaApp(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,37 @@ namespace application
         {
             ConfigureService.ConfigureDependenciesService(builder.Services);
             ConfigureRepository.ConfigureDependenciesRepository(builder.Services);
+            var signingConfigurations = new SigningConfigurations();
+            builder.Services.AddSingleton(signingConfigurations);
+
+            var tokenConfiguration = new TokenConfiguration();
+            new ConfigureFromConfigurationOptions<TokenConfiguration>(
+                builder.Configuration.GetSection("TokenConfiguration")).Configure(tokenConfiguration);
+            builder.Services.AddSingleton(tokenConfiguration);
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(bearerOptions =>
+            {
+                var paramsValidation = bearerOptions.TokenValidationParameters;
+                paramsValidation.IssuerSigningKey = signingConfigurations.Key;
+                paramsValidation.ValidAudience = tokenConfiguration.Audience;
+                paramsValidation.ValidIssuer = tokenConfiguration.Issuer;
+                paramsValidation.ValidateIssuerSigningKey = true;
+                paramsValidation.ValidateLifetime = true;
+                paramsValidation.ClockSkew = TimeSpan.Zero;
+            }
+            );
+
+            builder.Services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
+            }); 
+
             builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
         private static void ConfigureServices1(WebApplicationBuilder builder)
@@ -43,6 +75,7 @@ namespace application
             }
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.MapControllers();
         }
