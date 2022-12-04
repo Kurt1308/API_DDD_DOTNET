@@ -12,7 +12,7 @@ namespace application.Controllers
     public class LoginController : ControllerBase
     {
         [AllowAnonymous]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDTO loginDTO, [FromServices] ILoginService service)
         {

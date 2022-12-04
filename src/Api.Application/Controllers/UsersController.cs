@@ -16,7 +16,7 @@ namespace application.Controllers
         {
             _service = service;
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -34,7 +34,7 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpGet]
         [Route ("{id}", Name = "GetWithId")]
         public async Task<IActionResult> GetById( Guid id )
@@ -53,7 +53,7 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] UserEntity user)
         {
@@ -78,7 +78,7 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UserEntity user)
         {
@@ -104,7 +104,7 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
+        [Authorize("Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
