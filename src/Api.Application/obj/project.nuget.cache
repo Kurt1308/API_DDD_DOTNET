@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F8Hfi47UgjFAt7F/LMnNqknBrou7BKltHsuN0hC/im9PCTR7Us9D+SE+sG3OfxN2GNkKlNbG9MxhEURGsRi4uA==",
+  "dgSpecHash": "4pe5ZJdqRCprGset14wzAvzoN+lCa14m8uH8TZwlCa6eyyDvNG+s4vAG99ikPsLtsqD4kfnQZ+wEncFmQ3IxAA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Application\\application.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\lucas.dias\\.nuget\\packages\\fluentassertions\\6.8.0\\fluentassertions.6.8.0.nupkg.sha512",
     "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
     "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\lucas.dias\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

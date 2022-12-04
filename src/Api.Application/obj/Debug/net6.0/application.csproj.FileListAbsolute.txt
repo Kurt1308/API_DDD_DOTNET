@@ -89,3 +89,4 @@ C:\Users\lucas.dias\Desktop\DDD 2022\API_DDD_DOTNET\src\Api.Application\bin\Debu
 C:\Users\lucas.dias\Desktop\DDD 2022\API_DDD_DOTNET\src\Api.Application\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\lucas.dias\Desktop\DDD 2022\API_DDD_DOTNET\src\Api.Application\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\lucas.dias\Desktop\DDD 2022\API_DDD_DOTNET\src\Api.Application\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\lucas.dias\Desktop\DDD 2022\API_DDD_DOTNET\src\Api.Application\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

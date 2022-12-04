@@ -1,5 +1,7 @@
 ﻿using Domain.DTOs;
 using Domain.Interfaces.Services.User;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -9,6 +11,8 @@ namespace application.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+        [AllowAnonymous]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "Bearer")]
         [HttpPost]
         public async Task<object> Login([FromBody] LoginDTO loginDTO, [FromServices] ILoginService service)
         {
