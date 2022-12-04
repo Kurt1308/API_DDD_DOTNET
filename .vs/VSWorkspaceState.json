@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Api.Data",
+    "\\src\\Api.Data\\Context"
+  ],
+  "SelectedNode": "\\src\\Api.Data\\Context\\ContextFactory.cs",
+  "PreviewInSolutionExplorer": false
+}
