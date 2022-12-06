@@ -13,7 +13,7 @@ namespace CrossCutting.Mappings
     {
         public EntityToDTO()
         {
-            CreateMap<UserDTO, UserEntity>().ReverseMap();
+            CreateMap<UserDTOCreate, UserEntity>().ReverseMap();
 
             CreateMap<UserDTOCreateResult, UserEntity>().ReverseMap();
 

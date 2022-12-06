@@ -33,7 +33,7 @@ namespace Service.Services
         public async Task<UserDTO> Get(Guid id)
         {
             var entity = await _repository.SelectAsync(id);
-            return _mapper.Map<UserDTO>(entity);
+            return _mapper.Map<UserDTO>(entity) ?? new UserDTO();
         }
         //public async Task<IEnumerable<UserEntity>> GetAll()
         //{
@@ -49,7 +49,7 @@ namespace Service.Services
         //{
         //    return await _repository.InsertAsync(user);
         //}
-        public async Task<UserDTOCreateResult> Post(UserDTO user)
+        public async Task<UserDTOCreateResult> Post(UserDTOCreate user)
         {
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);
@@ -61,7 +61,7 @@ namespace Service.Services
         //{
         //    return await _repository.UpdateAsync(user);
         //}
-        public async Task<UserDTOUpdateResult> Put(UserDTO user)
+        public async Task<UserDTOUpdateResult> Put(UserDTOUpdate user)
         {
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);
