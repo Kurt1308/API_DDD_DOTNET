@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
+using Domain.Models;
+using Domain.DTOs.User;
+using AutoMapper;
+using Domain.Entities;
+using CrossCutting.Mappings;
 
 namespace application
 {
@@ -27,6 +32,7 @@ namespace application
             ConfigureRepository.ConfigureDependenciesRepository(builder.Services);
             var signingConfigurations = new SigningConfigurations();
             builder.Services.AddSingleton(signingConfigurations);
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             var tokenConfiguration = new TokenConfiguration();
             new ConfigureFromConfigurationOptions<TokenConfiguration>(
@@ -55,7 +61,17 @@ namespace application
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
             });
-            
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new DTOtoModel());
+                cfg.AddProfile(new EntityToDTO());
+                cfg.AddProfile(new ModelToEntity());
+            });
+            IMapper mapper = config.CreateMapper();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddSingleton(mapper);
+
             builder.Services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
         private static void ConfigureServices1(WebApplicationBuilder builder)

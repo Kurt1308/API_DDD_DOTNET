@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs.User;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,14 @@ namespace Domain.Interfaces.Services.User
 {
     public interface IUserService
     {
-        Task<UserEntity> Get ( Guid id );
-        Task<IEnumerable<UserEntity>> GetAll ( );
-        Task<UserEntity> Post ( UserEntity user );
-        Task<UserEntity> Put ( UserEntity user );
+        //Task<UserEntity> Get ( Guid id );
+        Task<UserDTO> Get ( Guid id );
+        //Task<IEnumerable<UserEntity>> GetAll ( );
+        Task<IEnumerable<UserDTO>> GetAll ( );
+        //Task<UserEntity> Post ( UserEntity user );
+        Task<UserDTOCreateResult> Post ( UserDTO user );
+        //Task<UserEntity> Put ( UserEntity user );
+        Task<UserDTOUpdateResult> Put ( UserDTO user );
         Task<bool> Delete(Guid id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Domain.DTOs.User;
+using Domain.Entities;
 using Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -55,7 +56,7 @@ namespace application.Controllers
         }
         [Authorize("Bearer")]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UserEntity user)
+        public async Task<IActionResult> Post([FromBody] UserDTO user)
         {
             if (!ModelState.IsValid)
             {
@@ -66,7 +67,7 @@ namespace application.Controllers
                 var result = await _service.Post(user);
                 if(result != null)
                 {
-                    return Created(new Uri(Url.Link("GetWithId", new {id = result.id})), result);
+                    return Created(new Uri(Url.Link("GetWithId", new {id = result.Id})), result);
                 } else
                 {
                     return BadRequest();
@@ -80,7 +81,7 @@ namespace application.Controllers
         }
         [Authorize("Bearer")]
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UserEntity user)
+        public async Task<IActionResult> Put([FromBody] UserDTO user)
         {
             if (!ModelState.IsValid)
             {
