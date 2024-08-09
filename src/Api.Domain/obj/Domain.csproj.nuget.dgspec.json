@@ -1,32 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj": {}
+    "C:\\Users\\lucas\\Downloads\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj": {
+    "C:\\Users\\lucas\\Downloads\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\lucas\\Downloads\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\lucas.dias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucas.dias\\Desktop\\DDD 2022\\API_DDD_DOTNET\\src\\Api.Domain\\obj\\",
+        "projectPath": "C:\\Users\\lucas\\Downloads\\API_DDD_DOTNET\\src\\Api.Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lucas\\Downloads\\API_DDD_DOTNET\\src\\Api.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas.dias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -34,15 +35,20 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.25.1, )"
+              "version": "[8.0.1, )"
             }
           },
           "imports": [
@@ -51,7 +57,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
